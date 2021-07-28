@@ -48,7 +48,7 @@ export class ClienteRegistrarComponent implements OnDestroy {
     this.form.controls['telefono'].value
     )
     .subscribe(respuesta =>{
-      console.log('Registro Correcto');
+      alert('¡Se registró existosamente!');
       this.router.navigate(['/inicio']);
     })
   }
