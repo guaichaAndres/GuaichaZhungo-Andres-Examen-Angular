@@ -20,11 +20,12 @@ export class ClienteRegistrarComponent implements OnDestroy {
     private formBuilder: FormBuilder,private router: Router, private RestService : WsJeeService) {
       this.form= this.formBuilder.group({
         cedula : [],
+        correo : [],
         nombre : [],
         apellido : [],
         direccion : [],
         telefono : [],
-        correo : []
+        
       });
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -40,11 +41,11 @@ export class ClienteRegistrarComponent implements OnDestroy {
   public registrarUsuario(){
     this.RestService.registrar('http://localhost:8080/GuaichaZhungo-Andres-Examen/rest/cliente/registrarCliente/',
     this.form.controls['cedula'].value,
+    this.form.controls['correo'].value, 
     this.form.controls['nombre'].value, 
     this.form.controls['apellido'].value,
     this.form.controls['direccion'].value, 
-    this.form.controls['telefono'].value, 
-    this.form.controls['correo'].value, 
+    this.form.controls['telefono'].value
     )
     .subscribe(respuesta =>{
       console.log('Registro Correcto');

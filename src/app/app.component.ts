@@ -15,6 +15,10 @@ export class AppComponent implements OnDestroy {
     {name:"Registrar un cliente", route: "/registrarClientes",icon:"account_circle"},
     {name:"Registrar un restaurante", route: "/registrarRestaurante",icon:"restaurant"},
     {name:"Reservar un restaurante", route: "/crearReserva",icon:"av_timer"},
+    {name:"Listar reservas (cli)", route: "/listarReservasClientes",icon:" format_list_bulleted"},
+    {name:"Listar reservas (res)", route: "/listarReservasRestaurantes",icon:"format_list_numbered"}
+
+
 
  
 

@@ -23,13 +23,15 @@ import { RestauranteRegistrarComponent } from './components/restaurante-registra
 import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.component';
 import { WsJeeService } from './services/ws-jee.service';
 import { HttpClientModule } from '@angular/common/http';
+import { ListarReservasClientesComponent } from './components/listar-reservas-clientes/listar-reservas-clientes.component';
 @NgModule({
   declarations: [
     AppComponent,
     InicioComponent,
     ClienteRegistrarComponent,
     RestauranteRegistrarComponent,
-    CrearReservaComponent
+    CrearReservaComponent,
+    ListarReservasClientesComponent
 
   ],
   imports: [
