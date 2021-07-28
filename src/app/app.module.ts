@@ -20,6 +20,8 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ClienteRegistrarComponent } from './components/cliente-registrar/cliente-registrar.component';
 import { RestauranteRegistrarComponent } from './components/restaurante-registrar/restaurante-registrar.component';
+import { WsJeeService } from './services/ws-jee.service';
+import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,9 +37,10 @@ import { RestauranteRegistrarComponent } from './components/restaurante-registra
     AngularMaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [WsJeeService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })

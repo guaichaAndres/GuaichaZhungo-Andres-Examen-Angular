@@ -1,24 +1,32 @@
-<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+<div class="container" fxLayout="row" fxLayoutAlign="center center">
     <mat-card class="box">
       <mat-card-header>
-        <mat-card-title>Registrar</mat-card-title>
+        <mat-card-title>Registrar Cliente</mat-card-title>
       </mat-card-header>
   
-      <form class="example-form">
+      <form [formGroup] = "form" (submit)="registrarUsuario()" class="example-form">
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Cédula" minlength ="10" required="true">
+            <input matInput placeholder="Cédula" minlength ="10" required="true" formControlName="cedula">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" >
+            <input matInput placeholder="Email" formControlName="correo">
           </mat-form-field>
   
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Contraseña"  type="password">
+            <input matInput placeholder="Nombre" formControlName="nombre" >
           </mat-form-field>
-  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Apellido"  formControlName="apellido">
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Dirección" formControlName="direccion"  >
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Teléfono" formControlName="telefono" >
+          </mat-form-field>
         </mat-card-content>
   
         <button mat-stroked-button color="accent" class="btn-block">Crear Cuenta</button>
