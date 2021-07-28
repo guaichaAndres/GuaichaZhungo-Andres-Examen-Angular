@@ -18,12 +18,15 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 
 /* Components */
 import { InicioComponent } from './components/inicio/inicio.component';
-
-
+import { ClienteRegistrarComponent } from './components/cliente-registrar/cliente-registrar.component';
+import { RestauranteRegistrarComponent } from './components/restaurante-registrar/restaurante-registrar.component';
 @NgModule({
   declarations: [
     AppComponent,
-    InicioComponent
+    InicioComponent,
+    ClienteRegistrarComponent,
+    RestauranteRegistrarComponent
+
   ],
   imports: [
     BrowserModule,

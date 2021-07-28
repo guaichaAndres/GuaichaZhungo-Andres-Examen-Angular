@@ -1,1 +1,28 @@
-<p>cliente-registrar works!</p>
+<div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
+    <mat-card class="box">
+      <mat-card-header>
+        <mat-card-title>Registrar</mat-card-title>
+      </mat-card-header>
+  
+      <form class="example-form">
+  
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Cédula" minlength ="10" required="true">
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email" >
+          </mat-form-field>
+  
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Contraseña"  type="password">
+          </mat-form-field>
+  
+        </mat-card-content>
+  
+        <button mat-stroked-button color="accent" class="btn-block">Crear Cuenta</button>
+  
+      </form>
+    </mat-card>
+  </div>
