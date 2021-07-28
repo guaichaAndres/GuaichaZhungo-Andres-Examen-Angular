@@ -22,4 +22,24 @@ export class WsJeeService {
     }
     );
       }
+
+      public registrarRestaurante(url:string,
+         nombre:any,
+         direccion:any,
+         telefono:any,
+         maxAforo:any
+         ){
+        const body = new HttpParams()
+        
+        .set('nombre', nombre)
+        .set('direccion', direccion)
+        .set('maxAforo', maxAforo)
+        .set('telefono', telefono);
+    
+        return this.http.post(url,body.toString(),{
+          headers: new HttpHeaders()
+            .set('Content-Type', 'application/x-www-form-urlencoded')
+        }
+        );
+          }
 }

@@ -20,6 +20,7 @@ import { FlexLayoutModule } from "@angular/flex-layout";
 import { InicioComponent } from './components/inicio/inicio.component';
 import { ClienteRegistrarComponent } from './components/cliente-registrar/cliente-registrar.component';
 import { RestauranteRegistrarComponent } from './components/restaurante-registrar/restaurante-registrar.component';
+import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.component';
 import { WsJeeService } from './services/ws-jee.service';
 import { HttpClientModule } from '@angular/common/http';
 @NgModule({
@@ -27,7 +28,8 @@ import { HttpClientModule } from '@angular/common/http';
     AppComponent,
     InicioComponent,
     ClienteRegistrarComponent,
-    RestauranteRegistrarComponent
+    RestauranteRegistrarComponent,
+    CrearReservaComponent
 
   ],
   imports: [

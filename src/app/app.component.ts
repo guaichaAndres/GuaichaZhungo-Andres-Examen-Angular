@@ -12,8 +12,10 @@ export class AppComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
   fillerNav = [
     {name:"Inicio", route: "/inicio",icon:"home"},
-    {name:"Registrar un cliente", route: "/registrarClientes",icon:"perm_contact_calendar"},
+    {name:"Registrar un cliente", route: "/registrarClientes",icon:"account_circle"},
     {name:"Registrar un restaurante", route: "/registrarRestaurante",icon:"restaurant"},
+    {name:"Reservar un restaurante", route: "/crearReserva",icon:"av_timer"},
+
  
 
 
