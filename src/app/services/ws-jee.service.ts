@@ -74,4 +74,11 @@ export class WsJeeService {
             reservasCliente(cedula:any){
               return this.http.get('http://localhost:8080/GuaichaZhungo-Andres-Examen/rest/cliente/reservas/'+cedula);
             }
+            reservasRestauranteFecha(fecha:any){
+              return this.http.get('http://localhost:8080/GuaichaZhungo-Andres-Examen/rest/restaurante/reservaciones/'+fecha);
+            }
+            reservasRestauranteNombre(nombre:any){
+              return this.http.get('http://localhost:8080/GuaichaZhungo-Andres-Examen/rest/restaurante/reservas/'+nombre);
+            }
+
 }

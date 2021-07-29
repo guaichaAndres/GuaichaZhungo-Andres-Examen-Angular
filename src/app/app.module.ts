@@ -24,6 +24,7 @@ import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.
 import { WsJeeService } from './services/ws-jee.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ListarReservasClientesComponent } from './components/listar-reservas-clientes/listar-reservas-clientes.component';
+import { ListarReservasRestaurantesComponent } from './components/listar-reservas-restaurantes/listar-reservas-restaurantes.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +32,8 @@ import { ListarReservasClientesComponent } from './components/listar-reservas-cl
     ClienteRegistrarComponent,
     RestauranteRegistrarComponent,
     CrearReservaComponent,
-    ListarReservasClientesComponent
+    ListarReservasClientesComponent,
+    ListarReservasRestaurantesComponent
 
   ],
   imports: [
