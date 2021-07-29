@@ -42,7 +42,7 @@ body {
   float: left;
   padding: 60px 50px 40px 50px;
   width: 100%;
-  background: rgb(4, 7, 56);
+  background: rgb(11, 15, 83);
   border-radius: 10px;
   transform: scale(1);
   -webkit-transform: scale(1);
@@ -165,4 +165,11 @@ h1.example-app-name {
   /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
      `<body>` to be our scrolling element for mobile layouts. */
   flex: 1 0 auto;
+}
+
+.container-error-message{
+  background-color: #f867672c;
+  color: rgb(231, 45, 45);
+  font-size: smaller;
+  text-align: center;
 }

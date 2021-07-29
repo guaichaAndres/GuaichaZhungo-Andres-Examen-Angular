@@ -10,27 +10,74 @@
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Cédula" minlength ="10" required="true" formControlName="cedula">
           </mat-form-field>
+          <div class="alert-danger" *ngIf ="cedula?.invalid && (cedula?.dirty || cedula?.touched)" >
+            <div class="container-error-message" *ngIf="cedula?.errors?.required">
+            Este campo es requerido
+            </div>
+            <div class="container-error-message" *ngIf="cedula?.errors?.minlength || cedula?.errors?.maxlength">
+            Este campo únicamente acepta 10 caracteres.
+            </div>
+        </div>
   
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Email" formControlName="correo">
+            <input matInput placeholder="E-mail" formControlName="correo">
           </mat-form-field>
-  
+          <div class="alert-danger" *ngIf ="correo?.invalid && (correo?.dirty || correo?.touched)" >
+            <div class="container-error-message" *ngIf="correo?.errors?.required">
+            Este campo es requerido
+            </div>
+            <div class="container-error-message" *ngIf="correo?.errors?.pattern">
+             Ingrese un e-mail válido
+            </div>
+        </div>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Nombre" formControlName="nombre" >
           </mat-form-field>
+          <div class="alert-danger" *ngIf ="nombre?.invalid && (nombre?.dirty || nombre?.touched)" >
+            <div class="container-error-message" *ngIf="nombre?.errors?.required">
+            Este campo es requerido
+            </div>
+            <div class="container-error-message" *ngIf="nombre?.errors?.pattern">
+             Solo se permiten letras en este campo
+            </div>
+        </div>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Apellido"  formControlName="apellido">
           </mat-form-field>
+          <div class="alert-danger" *ngIf ="apellido?.invalid && (apellido?.dirty || apellido?.touched)" >
+            <div class="container-error-message" *ngIf="apellido?.errors?.required">
+            Este campo es requerido
+            </div>
+            <div class="container-error-message" *ngIf="apellido?.errors?.pattern">
+              Solo se permiten letras en este campo
+            </div>
+        </div>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Dirección" formControlName="direccion"  >
           </mat-form-field>
+          <div class="alert-danger" *ngIf ="direccion?.invalid && (direccion?.dirty || direccion?.touched)" >
+            <div class="container-error-message" *ngIf="direccion?.errors?.required">
+            Este campo es requerido
+            </div>
+        </div>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Teléfono" formControlName="telefono" >
           </mat-form-field>
+          <div class="alert-danger" *ngIf ="telefono?.invalid && (telefono?.dirty || telefono?.touched)" >
+            <div class="container-error-message" *ngIf="telefono?.errors?.required">
+            Este campo es requerido
+            </div>
+            <div class="container-error-message" *ngIf="telefono?.errors?.pattern">
+              Solo se permiten números en este campo
+            </div>
+            <div class="container-error-message" *ngIf="telefono?.errors?.minlength || telefono?.errors?.maxlength">
+              Este campo únicamente acepta 10 caracteres.
+              </div>
+        </div>
         </mat-card-content>
   
-        <button mat-stroked-button color="accent" class="btn-block">Aceptar</button>
-  
+        <button  mat-stroked-button color="accent" class="btn-block"ng-disabled="form.$invalid || form.$pending">Aceptar</button>
+
       </form>
     </mat-card>
   </div>
