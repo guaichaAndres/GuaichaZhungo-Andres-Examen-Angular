@@ -13,7 +13,7 @@
       </form>
   
   
-  <table mat-table [dataSource]="reservas" class="mat-elevation-z8 demo-table">
+  <table mat-table [dataSource]="reservas" class="mat-elevation-z8 demo-table" *ngIf="display">
     <ng-container matColumnDef="id">
         <th mat-header-cell *matHeaderCellDef> ID </th>
         <td mat-cell *matCellDef="let reserva"> {{reserva.id}} </td>

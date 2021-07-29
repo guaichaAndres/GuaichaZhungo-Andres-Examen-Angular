@@ -11,7 +11,7 @@ import { WsJeeService } from 'src/app/services/ws-jee.service';
 })
 export class ListarReservasClientesComponent implements OnDestroy {
   displayedColumns: string[] = ['id','cliente','restaurante','numPersonas','fecha','hora'];
-
+  display = false; 
   public reservas : any =[];
   public form : FormGroup;
 
@@ -41,6 +41,8 @@ export class ListarReservasClientesComponent implements OnDestroy {
     subscribe((response : any) => {
 this.reservas = response
 console.log(this.reservas);
+this.display = true; 
+
 
     }), (error : any) => {
       console.log(error)
