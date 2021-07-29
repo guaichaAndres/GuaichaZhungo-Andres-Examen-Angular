@@ -28,7 +28,9 @@ public form2 : FormGroup;
         nombre : []
       });
       this.form2= this.formBuilder.group({
-        cedula : []
+        numPersonas : [],
+        fecha : [],
+        hora : []
       });
     }
 
@@ -56,5 +58,19 @@ console.log(this.existeRestaurant);
   }), (error : any) => {
     console.log(error)
 }
+}
+
+public crearResv(){
+  this.wsReservas.crearReserva('http://localhost:8080/GuaichaZhungo-Andres-Examen/rest/reserva/crearReserva/',
+  this.form.controls['cedula'].value,
+  this.form1.controls['nombre'].value, 
+  this.form2.controls['numPersonas'].value, 
+  this.form2.controls['fecha'].value,
+  this.form2.controls['hora'].value, 
+  )
+  .subscribe(respuesta =>{
+    alert('¡Se registró una reserva existosamente!');
+    this.router.navigate(['/inicio']);
+  })
 }
 }

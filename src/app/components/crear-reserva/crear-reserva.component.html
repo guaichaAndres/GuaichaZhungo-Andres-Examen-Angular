@@ -13,7 +13,7 @@
 
         </mat-card-content>
   
-        <button mat-stroked-button color="accent" class="btn-block">Buscar</button>
+        <button mat-stroked-button color="accent" class="btn-block">Aceptar</button>
   
       </form>
       <form  class="example-form" *ngIf= "existeCli" [formGroup] = "form1" (submit)="existeRestaurante()">
@@ -25,21 +25,21 @@
 
         </mat-card-content>
   
-        <button mat-stroked-button color="accent" class="btn-block">Buscar</button>
+        <button mat-stroked-button color="accent" class="btn-block">Aceptar</button>
   
       </form>
 
-      <form  class="example-form" *ngIf= "existeRestaurant">
+      <form  class="example-form" *ngIf= "existeRestaurant" [formGroup] = "form2" (submit)="crearResv()">
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Ingrese la fecha de la reservación"  >
+            <input matInput placeholder="Fecha de la reservación" formControlName="fecha" >
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Ingrese la hora de la reservación"  >
+            <input matInput placeholder="Hora de la reservación"  formControlName="hora">
           </mat-form-field>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Ingrese el número de personas"  >
+            <input matInput placeholder="Número de personas"  formControlName="numPersonas">
           </mat-form-field>
         </mat-card-content>
   
