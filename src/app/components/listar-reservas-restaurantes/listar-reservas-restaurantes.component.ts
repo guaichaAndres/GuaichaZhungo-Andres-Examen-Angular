@@ -10,7 +10,7 @@ import { WsJeeService } from 'src/app/services/ws-jee.service';
   styleUrls: ['./listar-reservas-restaurantes.component.css']
 })
 export class ListarReservasRestaurantesComponent implements OnDestroy {
-  displayedColumns: string[] = ['id','cliente','restaurante','numPersonas','fecha','hora'];
+  displayedColumns: string[] = ['id','restaurante','fecha','hora','numPersonas','cliente'];
   display = false; 
 
   public reservas : any =[];
