@@ -19,12 +19,6 @@ export class AppComponent implements OnDestroy {
     {name:"Listar reservas (res)", route: "/listarReservasRestaurantes",icon:"format_list_numbered"}
 
 
-
- 
-
-
-
-
 ]
   //fillerNav = Array.from({length: 50}, (_, i) => `Nav Item ${i + 1}`);
 

@@ -11,11 +11,23 @@ import { WsJeeService } from 'src/app/services/ws-jee.service';
 })
 export class CrearReservaComponent implements OnInit {
   existeCli = false; 
+  existeRestaurant = false; 
+
 public form : FormGroup;
+public form1 : FormGroup;
+public form2 : FormGroup;
+
+
 
   constructor(private wsReservas : WsJeeService, changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, 
     private formBuilder: FormBuilder,private router: Router) {
       this.form= this.formBuilder.group({
+        cedula : []
+      });
+      this.form1= this.formBuilder.group({
+        nombre : []
+      });
+      this.form2= this.formBuilder.group({
         cedula : []
       });
     }
@@ -25,14 +37,24 @@ public form : FormGroup;
   }
 
   existeClient(){
-    this.wsReservas.existeCliente().
+    this.wsReservas.existeCliente(this.form.controls['cedula'].value).
     subscribe((response : any) => {
 this.existeCli = response
 console.log(this.existeCli);
-alert(this.existeCli);
 
     }), (error : any) => {
       console.log(error)
   }
+}
+
+existeRestaurante(){
+  this.wsReservas.existeRestaurante(this.form1.controls['nombre'].value).
+  subscribe((response : any) => {
+this.existeRestaurant = response
+console.log(this.existeRestaurant);
+
+  }), (error : any) => {
+    console.log(error)
+}
 }
 }

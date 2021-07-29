@@ -65,7 +65,11 @@ export class WsJeeService {
            );
              }
 
-             existeCliente(){
-              return this.http.get('http://localhost:8080/GuaichaZhungo-Andres-Examen/rest/cliente/existeCliente/012345678');
+             existeCliente(cedula:any){
+              return this.http.get('http://localhost:8080/GuaichaZhungo-Andres-Examen/rest/cliente/existeCliente/'+cedula);
             }
+            existeRestaurante(nombre:any){
+              return this.http.get('http://localhost:8080/GuaichaZhungo-Andres-Examen/rest/restaurante/existeRestaurante/'+nombre);
+            }
+            
 }
