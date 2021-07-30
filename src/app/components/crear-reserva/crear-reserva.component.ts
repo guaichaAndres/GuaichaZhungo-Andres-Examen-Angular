@@ -13,6 +13,7 @@ export class CrearReservaComponent implements OnInit {
   existeCli = false; 
   existeRestaurant = false; 
   public validador = false;
+  display = true;
 
 public form : FormGroup;
 public form1 : FormGroup;
@@ -54,6 +55,7 @@ public form2 : FormGroup;
 this.existeCli = response
 console.log(this.existeCli);
 
+
     }), (error : any) => {
       console.log(error)
   }
@@ -64,7 +66,7 @@ existeRestaurante(){
   subscribe((response : any) => {
 this.existeRestaurant = response
 console.log(this.existeRestaurant);
-
+this.display = false;
   }), (error : any) => {
     console.log(error)
 }

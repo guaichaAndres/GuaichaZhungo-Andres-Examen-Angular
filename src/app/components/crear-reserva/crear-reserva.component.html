@@ -24,7 +24,7 @@
 
         </mat-card-content>
   
-        <button  type="submit"  [disabled]="form.invalid" mat-stroked-button color="accent" class="btn-block">Aceptar</button>
+        <button  type="submit"  [disabled]="form.invalid" mat-stroked-button color="accent" class="btn-block" *ngIf="display">Aceptar</button>
   
       </form>
       <form  class="example-form" *ngIf= "existeCli" [formGroup] = "form1" (ngSubmit)="existeRestaurante()">
@@ -43,7 +43,7 @@
         </div>
         </mat-card-content>
   
-        <button  type="submit"  [disabled]="form1.invalid" mat-stroked-button color="accent" class="btn-block">Aceptar</button>
+        <button  type="submit"  [disabled]="form1.invalid" mat-stroked-button color="accent" class="btn-block" *ngIf="display">Aceptar</button>
   
       </form>
 
@@ -51,7 +51,7 @@
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Fecha de la reservación" formControlName="fecha" >
+            <input matInput placeholder="Fecha de la reservación" formControlName="fecha" type="date">
           </mat-form-field>
           <div class="alert-danger" *ngIf ="fecha?.invalid && (fecha?.dirty || fecha?.touched)" >
             <div class="container-error-message" *ngIf="fecha?.errors?.required">
@@ -59,7 +59,7 @@
             </div>
         </div>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Hora de la reservación"  formControlName="hora">
+            <input matInput placeholder="Hora de la reservación"  formControlName="hora" type="time">
           </mat-form-field>
           <div class="alert-danger" *ngIf ="hora?.invalid && (hora?.dirty || hora?.touched)" >
             <div class="container-error-message" *ngIf="hora?.errors?.required">

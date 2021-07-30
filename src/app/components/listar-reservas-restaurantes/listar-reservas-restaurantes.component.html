@@ -6,7 +6,7 @@
       <form [formGroup] = "form" (ngSubmit)="reservasRestaurantFecha()" class="example-form" >
         <mat-card-content>
           <mat-form-field class="example-full-width">
-            <input matInput placeholder="Ingrese la fecha" formControlName="fecha">
+            <input matInput placeholder="Ingrese la fecha" formControlName="fecha" type="date">
           </mat-form-field>
           <div class="alert-danger" *ngIf ="fecha?.invalid && (fecha?.dirty || fecha?.touched)" >
             <div class="container-error-message" *ngIf="fecha?.errors?.required">
