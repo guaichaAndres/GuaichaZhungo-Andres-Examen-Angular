@@ -4,7 +4,7 @@
         <mat-card-title>Reservar Restaurante</mat-card-title>
       </mat-card-header>
   
-      <form  class="example-form" [formGroup] = "form" (submit)="existeClient()" >
+      <form  class="example-form" [formGroup] = "form" (ngSubmit)="existeClient()" >
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
@@ -13,10 +13,10 @@
 
         </mat-card-content>
   
-        <button mat-stroked-button color="accent" class="btn-block">Aceptar</button>
+        <button  type="submit"  [disabled]="form.invalid" mat-stroked-button color="accent" class="btn-block">Aceptar</button>
   
       </form>
-      <form  class="example-form" *ngIf= "existeCli" [formGroup] = "form1" (submit)="existeRestaurante()">
+      <form  class="example-form" *ngIf= "existeCli" [formGroup] = "form1" (ngSubmit)="existeRestaurante()">
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
@@ -25,7 +25,7 @@
 
         </mat-card-content>
   
-        <button mat-stroked-button color="accent" class="btn-block">Aceptar</button>
+        <button  type="submit"  [disabled]="form1.invalid" mat-stroked-button color="accent" class="btn-block">Aceptar</button>
   
       </form>
 
@@ -43,7 +43,7 @@
           </mat-form-field>
         </mat-card-content>
   
-        <button mat-stroked-button color="accent" class="btn-block">Reservar</button>
+        <button  type="submit"  [disabled]="form2.invalid" mat-stroked-button color="accent" class="btn-block">Reservar</button>
   
       </form>
     </mat-card>

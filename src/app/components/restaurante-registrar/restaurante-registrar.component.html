@@ -4,24 +4,58 @@
       <mat-card-title>Registrar Restaurante</mat-card-title>
     </mat-card-header>
 
-    <form [formGroup] = "form" (submit)="registrarRestaurante()" class="example-form">
+    <form [formGroup] = "form" (ngSubmit)="registrarRestaurante()" class="example-form">
     <mat-card-content>
         <mat-form-field class="example-full-width">
-          <input matInput placeholder="Nombre" formControlName="nombre" >
+          <input matInput placeholder="Nombre" formControlName="nombre" required="true" >
         </mat-form-field>
-       
+        <div class="alert-danger" *ngIf ="nombre?.invalid && (nombre?.dirty || nombre?.touched)" >
+          <div class="container-error-message" *ngIf="nombre?.errors?.required">
+          Este campo es requerido
+          </div>
+          <div class="container-error-message" *ngIf="nombre?.errors?.pattern">
+           Solo se permiten letras en este campo
+          </div>
+      </div>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Dirección" formControlName="direccion"  >
         </mat-form-field>
+        <div class="alert-danger" *ngIf ="direccion?.invalid && (direccion?.dirty || direccion?.touched)" >
+          <div class="container-error-message" *ngIf="direccion?.errors?.required">
+          Este campo es requerido
+          </div>
+      </div>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Teléfono" formControlName="telefono" >
         </mat-form-field>
+        <div class="alert-danger" *ngIf ="telefono?.invalid && (telefono?.dirty || telefono?.touched)" >
+          <div class="container-error-message" *ngIf="telefono?.errors?.required">
+          Este campo es requerido
+          </div>
+          <div class="container-error-message" *ngIf="telefono?.errors?.pattern">
+            Solo se permiten números en este campo
+          </div>
+          <div class="container-error-message" *ngIf="telefono?.errors?.minlength || telefono?.errors?.maxlength">
+            Este campo únicamente acepta 10 caracteres.
+            </div>
+      </div>
         <mat-form-field class="example-full-width">
           <input matInput placeholder="Máximo aforo permitido" formControlName="maxAforo" >
         </mat-form-field>
+        <div class="alert-danger" *ngIf ="maxAforo?.invalid && (maxAforo?.dirty || maxAforo?.touched)" >
+          <div class="container-error-message" *ngIf="maxAforo?.errors?.required">
+          Este campo es requerido
+          </div>
+            <div class="container-error-message" *ngIf="maxAforo?.errors?.pattern">
+              Solo se admiten números en este campo
+              </div>
+              <div class="container-error-message" *ngIf="maxAforo?.errors?.min">
+                El aforo debe ser igual o mayor a 1
+                </div>
+      </div>
       </mat-card-content>
 
-      <button mat-stroked-button color="accent" class="btn-block">Aceptar</button>
+      <button  type="submit"  [disabled]="form.invalid"  mat-stroked-button color="accent" class="btn-block" ng-disabled="form.$invalid || form.$pending">Aceptar</button>
 
     </form>
   </mat-card>

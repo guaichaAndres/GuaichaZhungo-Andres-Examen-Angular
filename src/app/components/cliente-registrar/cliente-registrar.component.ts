@@ -1,6 +1,6 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WsJeeService } from 'src/app/services/ws-jee.service';
@@ -22,8 +22,8 @@ export class ClienteRegistrarComponent implements OnDestroy {
       this.form= this.formBuilder.group({
         cedula : ['', [Validators.required, Validators.minLength(10), Validators.maxLength(10)]],
         correo : ['', [Validators.required, Validators.pattern(/^[_a-z0-9-]+(.[_a-z0-9-]+)*@[a-z0-9-]+(.[a-z0-9-]+)*(.[a-z]{2,4})$/)]],
-        nombre : ['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
-        apellido :['',[Validators.required, Validators.pattern(/^[a-zA-Z ]+$/)]],
+        nombre : ['',[Validators.required, Validators.pattern(/^[a-zA-ZáéíóúñÑ ]+$/)]],
+        apellido :['',[Validators.required, Validators.pattern(/^[a-zA-ZáéíóúñÑ ]+$/)]],
         direccion : ['',[Validators.required]],
         telefono : ['',[Validators.required, Validators.pattern(/^([0-9])*$/), Validators.minLength(10), Validators.maxLength(10)]],
         
@@ -60,7 +60,7 @@ export class ClienteRegistrarComponent implements OnDestroy {
     this.form.controls['telefono'].value
     )
     .subscribe(respuesta =>{
-      alert('¡Se registró existosamente!');
+      alert('¡Se registró un cliente existosamente!');
       this.router.navigate(['/inicio']);
     })
   }

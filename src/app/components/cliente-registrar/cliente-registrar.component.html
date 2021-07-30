@@ -4,7 +4,7 @@
         <mat-card-title>Registrar Cliente</mat-card-title>
       </mat-card-header>
   
-      <form [formGroup] = "form" (submit)="registrarUsuario()" class="example-form">
+      <form [formGroup] = "form" (ngSubmit)="registrarUsuario()" class="example-form">
   
         <mat-card-content>
           <mat-form-field class="example-full-width">
@@ -80,7 +80,7 @@
 
         </mat-card-content>
   
-        <button  mat-stroked-button color="accent" class="btn-block"ng-disabled="form.$invalid || form.$pending">Aceptar</button>
+        <button  type="submit"  [disabled]="form.invalid" mat-stroked-button color="accent" class="btn-block">Aceptar</button>
 
       </form>
     </mat-card>

@@ -1,6 +1,6 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup,Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WsJeeService } from 'src/app/services/ws-jee.service';
@@ -20,10 +20,10 @@ export class RestauranteRegistrarComponent implements OnDestroy {
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, 
     private formBuilder: FormBuilder,private router: Router, private RestService : WsJeeService) {
       this.form= this.formBuilder.group({
-        nombre : [],
-        direccion : [],
-        telefono : [],
-        maxAforo : []
+        nombre : ['',[Validators.required, Validators.pattern(/^[a-zA-ZáéíóúñÑ ]+$/)]],
+        direccion : ['',[Validators.required]],
+        telefono : ['',[Validators.required, Validators.pattern(/^([0-9])*$/), Validators.minLength(10), Validators.maxLength(10)]],
+        maxAforo : ['',[Validators.required, Validators.pattern(/^([0-9])*$/), Validators.min(1)]]
       });
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
     this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -46,8 +46,14 @@ export class RestauranteRegistrarComponent implements OnDestroy {
     )
     .subscribe(respuesta =>{
       console.log('Registro Correcto');
+      alert('¡Se registró  un restaurante existosamente!');
       this.router.navigate(['/inicio']);
     })
   }
+  get nombre(){return this.form.get('nombre')}
+  get direccion(){return this.form.get('direccion')}
+  get telefono(){return this.form.get('telefono')}
+  get maxAforo(){return this.form.get('maxAforo')}
+
 
 }
