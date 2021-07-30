@@ -1,6 +1,6 @@
 import {MediaMatcher} from '@angular/cdk/layout';
 import {ChangeDetectorRef, Component, OnDestroy, OnInit} from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, Validators } from '@angular/forms';
 import { FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 import { WsJeeService } from 'src/app/services/ws-jee.service';
@@ -24,10 +24,10 @@ export class ListarReservasRestaurantesComponent implements OnDestroy {
   constructor(changeDetectorRef: ChangeDetectorRef, media: MediaMatcher, 
     private formBuilder: FormBuilder,private router: Router, private wsReservas : WsJeeService) {
       this.form= this.formBuilder.group({
-        fecha : []   
+        fecha : ['',Validators.required],
       });
       this.form1= this.formBuilder.group({
-        nombre : []   
+        nombre : ['',[Validators.required, Validators.pattern(/^[a-zA-Záéíóú ]+$/)]],
       });
       this.mobileQuery = media.matchMedia('(max-width: 600px)');
       this._mobileQueryListener = () => changeDetectorRef.detectChanges();
@@ -61,4 +61,8 @@ this.display = true;
     console.log(error)
 }
 }
+get fecha(){return this.form.get('fecha')}
+get nombre(){return this.form1.get('nombre')}
+
+
 }

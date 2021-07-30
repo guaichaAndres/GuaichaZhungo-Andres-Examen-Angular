@@ -6,6 +6,7 @@ import { RestauranteRegistrarComponent } from './components/restaurante-registra
 import { CrearReservaComponent } from './components/crear-reserva/crear-reserva.component';
 import { ListarReservasClientesComponent } from './components/listar-reservas-clientes/listar-reservas-clientes.component';
 import { ListarReservasRestaurantesComponent } from './components/listar-reservas-restaurantes/listar-reservas-restaurantes.component';
+import { NoPageFoundComponent } from './components/no-page-found/no-page-found.component';
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'inicio' },
   { path: 'inicio', component: InicioComponent },
@@ -13,7 +14,10 @@ const routes: Routes = [
   { path: 'registrarRestaurante', component: RestauranteRegistrarComponent },
   { path: 'crearReserva', component: CrearReservaComponent },
   { path: 'listarReservasClientes', component: ListarReservasClientesComponent },
-  { path: 'listarReservasRestaurantes', component: ListarReservasRestaurantesComponent }
+  { path: 'listarReservasRestaurantes', component: ListarReservasRestaurantesComponent },
+  {path: '404', component: NoPageFoundComponent},
+  {path: '**', redirectTo: '/404'}
+
 ];
 
 @NgModule({

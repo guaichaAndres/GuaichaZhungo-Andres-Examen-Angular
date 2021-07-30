@@ -3,13 +3,24 @@
       <mat-card-header>
         <mat-card-title>Reservas</mat-card-title>
       </mat-card-header>
-      <form [formGroup] = "form" (submit)="reservasCli()" class="example-form" >
+      <form [formGroup] = "form" (ngSubmit)="reservasCli()" class="example-form" >
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Ingrese su cédula" formControlName="cedula">
           </mat-form-field>
+          <div class="container-error-message" *ngIf="!validador && form.value?.cedula?.length==10" class="text-danger">Cedula Invalida</div>
+
+          <div class="alert-danger" *ngIf ="cedula?.invalid && (cedula?.dirty || cedula?.touched)" >
+  <div class="container-error-message" *ngIf="cedula?.errors?.required">
+  Este campo es requerido
+  </div>
+  <div class="container-error-message" *ngIf="cedula?.errors?.minlength || cedula?.errors?.maxlength">
+  Este campo únicamente acepta 10 caracteres.
+  </div>
+
+</div>
         </mat-card-content>
-        <button mat-stroked-button   color="accent" class="btn-block">Ver reservas</button>
+        <button  type="submit"  [disabled]="form.invalid" mat-stroked-button color="accent" class="btn-block">Ver Reservas</button>
       </form>
   
   

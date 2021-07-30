@@ -3,22 +3,35 @@
       <mat-card-header>
         <mat-card-title>Reservas del Restaurante</mat-card-title>
       </mat-card-header>
-      <form [formGroup] = "form" (submit)="reservasRestaurantFecha()" class="example-form" >
+      <form [formGroup] = "form" (ngSubmit)="reservasRestaurantFecha()" class="example-form" >
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Ingrese la fecha" formControlName="fecha">
           </mat-form-field>
+          <div class="alert-danger" *ngIf ="fecha?.invalid && (fecha?.dirty || fecha?.touched)" >
+            <div class="container-error-message" *ngIf="fecha?.errors?.required">
+            Este campo es requerido
+            </div>
+        </div>
         </mat-card-content>
-        <button mat-stroked-button   color="accent" class="btn-block">Ver reservas</button>
+        <button  type="submit"  [disabled]="form.invalid" mat-stroked-button color="accent" class="btn-block">Ver Reservas</button>
       </form>
 
-      <form [formGroup] = "form1" (submit)="reservasRestaurantNombre()" class="example-form" >
+      <form [formGroup] = "form1" (ngSubmit)="reservasRestaurantNombre()" class="example-form" >
         <mat-card-content>
           <mat-form-field class="example-full-width">
             <input matInput placeholder="Ingrese el nombre del restaurante" formControlName="nombre">
           </mat-form-field>
+          <div class="alert-danger" *ngIf ="nombre?.invalid && (nombre?.dirty || nombre?.touched)" >
+            <div class="container-error-message" *ngIf="nombre?.errors?.required">
+            Este campo es requerido
+            </div>
+            <div class="container-error-message" *ngIf="nombre?.errors?.pattern">
+             Solo se permiten letras en este campo
+            </div>
+        </div>
         </mat-card-content>
-        <button mat-stroked-button   color="accent" class="btn-block">Ver reservas</button>
+        <button  type="submit"  [disabled]="form1.invalid" mat-stroked-button color="accent" class="btn-block">Ver Reservas</button>
       </form>  
   
 
